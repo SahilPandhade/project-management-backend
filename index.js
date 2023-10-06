@@ -18,7 +18,6 @@ console.log(process.env.CLIENT_URL)
 // }));
 app.use(cors({
     origin: 'https://project-management-frontend-fdz7.onrender.com',
-    credentials: true,
 }));
 
 app.use('/graphql', graphqlHTTP({
