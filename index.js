@@ -14,12 +14,11 @@ const app = express()
 console.log(process.env.CLIENT_URL)
 app.use(cors({
     origin:process.env.CLIENT_URL,
-    credentials:true,
 
 }));
 
 
-app.use('/graphql',cors(),(req, res, next) => {
+app.use('/graphql',(req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', process.env.CLIENT_URL);
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
