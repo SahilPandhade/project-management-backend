@@ -11,7 +11,11 @@ const connectDB = require('./config/db.js')
 //connect to db
 connectDB()
 const app  = express()
-app.use(cors());
+console.log(process.env.CLIENT_URL)
+app.use(cors({
+    origin:process.env.CLIENT_URL,
+    credentials:true
+}));
 app.use('/graphql', graphqlHTTP({
     schema,
     graphiql: process.env.NODE_ENV === 'development'
